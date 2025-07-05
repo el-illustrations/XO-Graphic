@@ -61,7 +61,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				particle: {
+					light: 'hsl(var(--particle-light))',
+					medium: 'hsl(var(--particle-medium))'
 				}
+			},
+			fontFamily: {
+				'sans': ['Inter', 'Manrope', 'system-ui', 'sans-serif'],
+				'display': ['Poppins', 'Satoshi', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
