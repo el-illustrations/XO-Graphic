@@ -18,24 +18,16 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <motion.img 
-            src="/XO_Logo-removebg-preview.png" 
-            alt="XO Graphics" 
-            className="mx-auto h-32 md:h-48 w-auto mb-4"
+          <motion.h1 
+            className="text-6xl md:text-8xl font-display font-bold text-secondary mb-4 neon-glow-text"
             whileHover={{ 
               scale: 1.05,
-              filter: 'drop-shadow(0 0 20px hsl(var(--primary)))'
+              textShadow: '0 0 20px hsl(var(--primary))'
             }}
             transition={{ duration: 0.3 }}
-            onError={(e) => {
-              // Fallback to text if image fails to load
-              const target = e.target as HTMLImageElement;
-              target.style.display = 'none';
-              const textFallback = document.createElement('div');
-              textFallback.innerHTML = '<h1 class="text-6xl md:text-8xl font-display font-bold text-secondary mb-4 neon-glow-text">XO Graphics</h1>';
-              target.parentNode?.appendChild(textFallback);
-            }}
-          />
+          >
+            XO Graphics
+          </motion.h1>
         </motion.div>
 
         <motion.p

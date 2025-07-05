@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Award, Users } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Award, Users, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const openPrivacyPolicy = () => {
@@ -26,7 +26,7 @@ const Footer = () => {
             <img 
               src="/XO_Logo-removebg-preview.png" 
               alt="XO Graphics Logo" 
-              className="h-12 w-auto mb-4 opacity-90"
+              className="h-16 w-auto mb-4 opacity-90"
               onError={(e) => {
                 // Fallback to text logo if image fails to load
                 const target = e.target as HTMLImageElement;
@@ -112,6 +112,15 @@ const Footer = () => {
                   +91 80728 88570
                 </a>
               </motion.div>
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-center space-x-3 cursor-pointer hover:text-primary transition-colors duration-300"
+              >
+                <Instagram size={16} className="text-primary" />
+                <a href="https://www.instagram.com/_xographics_/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                  @_xographics_
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -126,7 +135,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-xs text-secondary-foreground/60">
-              © 2024 XO Graphics. All rights reserved.
+              © 2025 XO Graphics. All rights reserved.
             </div>
             <div className="flex space-x-6 text-xs text-secondary-foreground/60">
               <motion.button 

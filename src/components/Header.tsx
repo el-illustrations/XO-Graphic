@@ -40,7 +40,7 @@ const Header = () => {
             <img 
               src="/XO_Logo-removebg-preview.png" 
               alt="XO Graphics Logo" 
-              className="h-10 w-auto"
+              className="h-14 w-auto"
               onError={(e) => {
                 // Fallback to text logo if image fails to load
                 const target = e.target as HTMLImageElement;
