@@ -19,7 +19,7 @@ const Hero = () => {
           className="mb-8"
         >
           <motion.img 
-            src="/lovable-uploads/xo-graphics-body.png" 
+            src="/XO_Logo-removebg-preview.png" 
             alt="XO Graphics" 
             className="mx-auto h-32 md:h-48 w-auto mb-4"
             whileHover={{ 

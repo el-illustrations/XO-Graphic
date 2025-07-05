@@ -24,9 +24,9 @@ const Footer = () => {
             className="md:col-span-2"
           >
             <img 
-              src="/lovable-uploads/xo-graphics-logo.png" 
+              src="/XO_Logo-removebg-preview.png" 
               alt="XO Graphics Logo" 
-              className="h-12 w-auto mb-4 opacity-90 brightness-0 invert"
+              className="h-12 w-auto mb-4 opacity-90"
               onError={(e) => {
                 // Fallback to text logo if image fails to load
                 const target = e.target as HTMLImageElement;

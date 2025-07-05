@@ -38,9 +38,9 @@ const Header = () => {
             onClick={() => scrollToSection('hero')}
           >
             <img 
-              src="/lovable-uploads/xo-graphics-logo.png" 
+              src="/XO_Logo-removebg-preview.png" 
               alt="XO Graphics Logo" 
-              className="h-10 w-auto brightness-0 invert"
+              className="h-10 w-auto"
               onError={(e) => {
                 // Fallback to text logo if image fails to load
                 const target = e.target as HTMLImageElement;
