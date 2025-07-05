@@ -40,7 +40,15 @@ const Header = () => {
             <img 
               src="/lovable-uploads/xo-graphics-logo.png" 
               alt="XO Graphics Logo" 
-              className="h-10 w-auto"
+              className="h-10 w-auto brightness-0 invert"
+              onError={(e) => {
+                // Fallback to text logo if image fails to load
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const textLogo = document.createElement('div');
+                textLogo.innerHTML = '<span class="text-white font-display font-bold text-xl">XO Graphics</span>';
+                target.parentNode?.appendChild(textLogo);
+              }}
             />
           </motion.div>
 
@@ -62,7 +70,7 @@ const Header = () => {
                   color: 'hsl(var(--primary))'
                 }}
                 onClick={() => scrollToSection(item.id)}
-                className="text-foreground hover:text-primary transition-all duration-300 font-medium relative group"
+                className="text-white hover:text-primary transition-all duration-300 font-medium relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -74,7 +82,7 @@ const Header = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-300"
+            className="md:hidden p-2 text-white hover:text-primary transition-colors duration-300"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="3" y1="6" x2="21" y2="6"/>

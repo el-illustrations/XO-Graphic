@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-// Remove hero background image import
 
 const Hero = () => {
   const scrollToNext = () => {
@@ -11,8 +10,6 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
-      {/* Remove background image */}
-      
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <motion.div
@@ -30,6 +27,14 @@ const Hero = () => {
               filter: 'drop-shadow(0 0 20px hsl(var(--primary)))'
             }}
             transition={{ duration: 0.3 }}
+            onError={(e) => {
+              // Fallback to text if image fails to load
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              const textFallback = document.createElement('div');
+              textFallback.innerHTML = '<h1 class="text-6xl md:text-8xl font-display font-bold text-secondary mb-4 neon-glow-text">XO Graphics</h1>';
+              target.parentNode?.appendChild(textFallback);
+            }}
           />
         </motion.div>
 
