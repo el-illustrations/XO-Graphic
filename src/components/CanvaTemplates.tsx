@@ -98,7 +98,7 @@ const CanvaTemplates = () => {
         >
           {templates.map((template, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="portfolio-card bg-card border-muted overflow-hidden h-full">
+              <Card className="glass-card portfolio-card border-muted/30 overflow-hidden h-full backdrop-blur-md">
                 <div className="relative overflow-hidden">
                   <img
                     src={template.image}

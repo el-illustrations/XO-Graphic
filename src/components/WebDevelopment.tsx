@@ -82,7 +82,7 @@ const WebDevelopment = () => {
         >
           {projects.map((project, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="portfolio-card bg-card border-muted overflow-hidden">
+              <Card className="glass-card portfolio-card border-muted/30 overflow-hidden backdrop-blur-md">
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}

@@ -42,8 +42,8 @@ const SmokyBackground = () => {
     };
 
     const updateParticles = () => {
-      // Add new particles occasionally
-      if (Math.random() < 0.02) {
+      // Add new particles more frequently
+      if (Math.random() < 0.05) {
         particles.push(createParticle());
       }
 
@@ -52,13 +52,13 @@ const SmokyBackground = () => {
         particle.y += particle.vy;
         particle.life++;
 
-        // Fade in and out
+        // Enhanced fade in and out
         if (particle.life < particle.maxLife * 0.2) {
-          particle.opacity = particle.life / (particle.maxLife * 0.2) * 0.1;
+          particle.opacity = particle.life / (particle.maxLife * 0.2) * 0.3;
         } else if (particle.life > particle.maxLife * 0.8) {
-          particle.opacity = (particle.maxLife - particle.life) / (particle.maxLife * 0.2) * 0.1;
+          particle.opacity = (particle.maxLife - particle.life) / (particle.maxLife * 0.2) * 0.3;
         } else {
-          particle.opacity = 0.1;
+          particle.opacity = 0.25;
         }
 
         return particle.life < particle.maxLife && particle.y > -100;
@@ -73,8 +73,8 @@ const SmokyBackground = () => {
           particle.x, particle.y, 0,
           particle.x, particle.y, particle.radius
         );
-        gradient.addColorStop(0, `rgba(209, 209, 209, ${particle.opacity})`);
-        gradient.addColorStop(0.5, `rgba(227, 227, 227, ${particle.opacity * 0.5})`);
+        gradient.addColorStop(0, `rgba(209, 209, 209, ${particle.opacity * 2})`);
+        gradient.addColorStop(0.5, `rgba(227, 227, 227, ${particle.opacity * 1.5})`);
         gradient.addColorStop(1, `rgba(209, 209, 209, 0)`);
 
         ctx.fillStyle = gradient;
@@ -124,7 +124,7 @@ const SmokyBackground = () => {
               x: [0, Math.random() * 100 - 50, 0],
               y: [0, Math.random() * 100 - 50, 0],
               scale: [1, 1.2, 1],
-              opacity: [0.3, 0.1, 0.3],
+              opacity: [0.6, 0.3, 0.6],
             }}
             transition={{
               duration: Math.random() * 20 + 15,

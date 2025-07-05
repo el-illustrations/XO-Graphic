@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-bg.jpg';
+// Remove hero background image import
 
 const Hero = () => {
   const scrollToNext = () => {
@@ -11,11 +11,7 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
+      {/* Remove background image */}
       
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -26,8 +22,8 @@ const Hero = () => {
           className="mb-8"
         >
           <motion.img 
-            src="/lovable-uploads/913d5eee-6f92-46be-bd77-25be75a412da.png" 
-            alt="XO Graphics Logo" 
+            src="/lovable-uploads/xo-graphics-body.png" 
+            alt="XO Graphics" 
             className="mx-auto h-32 md:h-48 w-auto mb-4"
             whileHover={{ 
               scale: 1.05,

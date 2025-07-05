@@ -16,7 +16,7 @@ const Footer = () => {
             className="md:col-span-2"
           >
             <img 
-              src="/lovable-uploads/913d5eee-6f92-46be-bd77-25be75a412da.png" 
+              src="/lovable-uploads/xo-graphics-logo.png" 
               alt="XO Graphics Logo" 
               className="h-12 w-auto mb-4 opacity-90"
             />
@@ -91,13 +91,6 @@ const Footer = () => {
               >
                 <Phone size={16} className="text-primary" />
                 <span>+91 80728 88570</span>
-              </motion.div>
-              <motion.div
-                whileHover={{ x: 5 }}
-                className="flex items-center space-x-3"
-              >
-                <MapPin size={16} className="text-primary" />
-                <span>Kerala, India</span>
               </motion.div>
             </div>
           </motion.div>

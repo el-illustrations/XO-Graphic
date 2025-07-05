@@ -109,7 +109,12 @@
 
   body {
     @apply bg-background text-foreground;
-    cursor: none; /* Hide default cursor for custom cursor */
+  }
+
+  @media (min-width: 769px) {
+    body {
+      cursor: none; /* Hide default cursor for custom cursor on desktop only */
+    }
   }
 
   /* Smooth scrolling */
@@ -126,7 +131,7 @@
 
 /* Custom animations and effects */
 @layer components {
-  /* Custom cursor */
+  /* Custom cursor - hidden on mobile */
   .custom-cursor {
     position: fixed;
     width: 20px;
@@ -141,6 +146,23 @@
 
   .custom-cursor.clicked {
     transform: scale(0.8);
+  }
+
+  @media (max-width: 768px) {
+    .custom-cursor {
+      display: none;
+    }
+    body {
+      cursor: auto !important;
+    }
+  }
+
+  /* Glassy card effects */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   }
 
   /* Neon glow effects */

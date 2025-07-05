@@ -24,8 +24,8 @@ const Header = () => {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md border-b border-muted/20' 
-          : 'bg-transparent'
+          ? 'bg-secondary/95 backdrop-blur-md border-b border-muted/20' 
+          : 'bg-secondary/50 backdrop-blur-sm'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-4 py-4">
@@ -38,7 +38,7 @@ const Header = () => {
             onClick={() => scrollToSection('hero')}
           >
             <img 
-              src="/lovable-uploads/913d5eee-6f92-46be-bd77-25be75a412da.png" 
+              src="/lovable-uploads/xo-graphics-logo.png" 
               alt="XO Graphics Logo" 
               className="h-10 w-auto"
             />
