@@ -101,13 +101,26 @@
 }
 
 @layer base {
+  /* Global smooth transitions */
   * {
     @apply border-border;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   body {
     @apply bg-background text-foreground;
     cursor: none; /* Hide default cursor for custom cursor */
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced focus states */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
   }
 }
 

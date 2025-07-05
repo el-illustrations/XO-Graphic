@@ -23,10 +23,18 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="mb-8"
         >
-          <h1 className="font-display font-bold text-6xl md:text-8xl mb-4 text-secondary">
-            <span className="neon-glow-text text-primary">XO</span> Graphics
-          </h1>
+          <motion.img 
+            src="/lovable-uploads/913d5eee-6f92-46be-bd77-25be75a412da.png" 
+            alt="XO Graphics Logo" 
+            className="mx-auto h-32 md:h-48 w-auto mb-4"
+            whileHover={{ 
+              scale: 1.05,
+              filter: 'drop-shadow(0 0 20px hsl(var(--primary)))'
+            }}
+            transition={{ duration: 0.3 }}
+          />
         </motion.div>
 
         <motion.p
