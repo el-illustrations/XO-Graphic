@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Award, Users } from 'lucide-react';
 
 const Footer = () => {
+  const openPrivacyPolicy = () => {
+    window.open('/privacy-policy', '_blank', 'noopener,noreferrer');
+  };
+
+  const openTermsOfService = () => {
+    window.open('/terms-of-service', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <footer className="py-16 px-4 bg-secondary relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
@@ -18,7 +26,15 @@ const Footer = () => {
             <img 
               src="/lovable-uploads/xo-graphics-logo.png" 
               alt="XO Graphics Logo" 
-              className="h-12 w-auto mb-4 opacity-90"
+              className="h-12 w-auto mb-4 opacity-90 brightness-0 invert"
+              onError={(e) => {
+                // Fallback to text logo if image fails to load
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const textLogo = document.createElement('div');
+                textLogo.innerHTML = '<span class="text-white font-display font-bold text-xl">XO Graphics</span>';
+                target.parentNode?.appendChild(textLogo);
+              }}
             />
             <p className="text-secondary-foreground/80 text-sm mb-6 max-w-md">
               Designs that Click. Websites that Stick. We create stunning digital experiences that elevate your brand and engage your audience.
@@ -83,14 +99,18 @@ const Footer = () => {
                 className="flex items-center space-x-3 cursor-pointer hover:text-primary transition-colors duration-300"
               >
                 <Mail size={16} className="text-primary" />
-                <span>xographics1017@gmail.com</span>
+                <a href="mailto:xographics1017@gmail.com" className="hover:text-primary">
+                  xographics1017@gmail.com
+                </a>
               </motion.div>
               <motion.div
                 whileHover={{ x: 5 }}
                 className="flex items-center space-x-3 cursor-pointer hover:text-primary transition-colors duration-300"
               >
                 <Phone size={16} className="text-primary" />
-                <span>+91 80728 88570</span>
+                <a href="https://wa.me/918072888570" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                  +91 80728 88570
+                </a>
               </motion.div>
             </div>
           </motion.div>
@@ -109,8 +129,20 @@ const Footer = () => {
               © 2024 XO Graphics. All rights reserved.
             </div>
             <div className="flex space-x-6 text-xs text-secondary-foreground/60">
-              <motion.span whileHover={{ color: 'hsl(var(--primary))' }} className="cursor-pointer">Privacy Policy</motion.span>
-              <motion.span whileHover={{ color: 'hsl(var(--primary))' }} className="cursor-pointer">Terms of Service</motion.span>
+              <motion.button 
+                whileHover={{ color: 'hsl(var(--primary))' }} 
+                className="cursor-pointer hover:text-primary transition-colors duration-300"
+                onClick={openPrivacyPolicy}
+              >
+                Privacy Policy
+              </motion.button>
+              <motion.button 
+                whileHover={{ color: 'hsl(var(--primary))' }} 
+                className="cursor-pointer hover:text-primary transition-colors duration-300"
+                onClick={openTermsOfService}
+              >
+                Terms of Service
+              </motion.button>
               <motion.span whileHover={{ color: 'hsl(var(--primary))' }} className="cursor-pointer">Sitemap</motion.span>
             </div>
           </div>
