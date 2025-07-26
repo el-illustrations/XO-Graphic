@@ -4,6 +4,8 @@ import { useInView } from 'react-intersection-observer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
+import MagneticCard from '@/components/MagneticCard';
+import VideoPreview from '@/components/VideoPreview';
 
 const WebDevelopment = () => {
   const [ref, inView] = useInView({
@@ -15,23 +17,26 @@ const WebDevelopment = () => {
     {
       title: "Personal Portfolio",
       description: "Modern single-page portfolio showcasing creative work with smooth animations and responsive design.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-      liveUrl: "#",
-      status: "Coming Soon"
+      videoSrc: "/videos/portfolio-preview.mp4", // You'll need to add this video
+      posterSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+      liveUrl: "https://graphic-portfolio-hariram.web.app/",
+      status: "Live"
     },
     {
       title: "Nakshathra Resorts",
       description: "Luxury resort website featuring stunning visuals, booking system, and immersive user experience.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
+      videoSrc: "/videos/nakshathra-preview.mp4", // You'll need to add this video
+      posterSrc: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
       liveUrl: "https://nakshathraresorts.web.app/#",
       status: "Live"
     },
     {
       title: "FC Meena Turf",
       description: "Sports facility website with booking features, gallery, and facility information for football enthusiasts.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
-      liveUrl: "#",
-      status: "Coming Soon"
+      videoSrc: "/videos/fc-meena-preview.mp4", // You'll need to add this video
+      posterSrc: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
+      liveUrl: "https://fc-meena-turf.web.app/",
+      status: "Live"
     }
   ];
 
@@ -62,13 +67,13 @@ const WebDevelopment = () => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="font-display font-bold text-4xl md:text-5xl mb-4 text-secondary"
+            className="font-display font-bold text-4xl md:text-5xl mb-4 text-secondary dark:text-white"
           >
             Static Website Development
           </motion.h2>
           <motion.p 
             variants={itemVariants}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg text-muted-foreground max-w-2xl mx-auto font-serif"
           >
             I create modern single-page websites for personal and business branding with cutting-edge design and smooth animations.
           </motion.p>
@@ -82,44 +87,51 @@ const WebDevelopment = () => {
         >
           {projects.map((project, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="glass-card portfolio-card border-muted/30 overflow-hidden backdrop-blur-md">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  <div className="absolute top-2 right-2">
-                    <span className={`px-2 py-1 text-xs rounded-full font-medium ${
-                      project.status === 'Live' 
-                        ? 'bg-primary text-primary-foreground' 
-                        : 'bg-muted text-muted-foreground'
-                    }`}>
-                      {project.status}
-                    </span>
+              <MagneticCard 
+                className="h-full"
+                sensitivity={0.3}
+                magneticRange={120}
+                glowIntensity={0.4}
+              >
+                <Card className="glass-card border-muted/30 overflow-hidden backdrop-blur-md h-full">
+                  <div className="relative overflow-hidden">
+                    <VideoPreview
+                      src={project.videoSrc}
+                      poster={project.posterSrc}
+                      className="w-full h-48"
+                    />
+                    <div className="absolute top-2 right-2">
+                      <span className={`px-2 py-1 text-xs rounded-full font-medium font-display ${
+                        project.status === 'Live' 
+                          ? 'bg-primary text-primary-foreground' 
+                          : 'bg-muted text-muted-foreground'
+                      }`}>
+                        {project.status}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-lg font-display font-semibold text-secondary">
-                    {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardFooter>
-                  <Button
-                    variant={project.status === 'Live' ? 'default' : 'secondary'}
-                    size="sm"
-                    className={project.status === 'Live' ? 'neon-glow' : ''}
-                    onClick={() => project.status === 'Live' && window.open(project.liveUrl, '_blank')}
-                    disabled={project.status !== 'Live'}
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    View Live
-                  </Button>
-                </CardFooter>
-              </Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg font-display font-semibold text-secondary dark:text-white">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground font-serif">
+                      {project.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardFooter>
+                    <Button
+                      variant={project.status === 'Live' ? 'default' : 'secondary'}
+                      size="sm"
+                      className={`${project.status === 'Live' ? 'neon-glow' : ''} font-display`}
+                      onClick={() => project.status === 'Live' && window.open(project.liveUrl, '_blank')}
+                      disabled={project.status !== 'Live'}
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      View Live
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </MagneticCard>
             </motion.div>
           ))}
         </motion.div>

@@ -68,8 +68,9 @@ export default {
 				}
 			},
 			fontFamily: {
-				'sans': ['Inter', 'Manrope', 'system-ui', 'sans-serif'],
-				'display': ['Poppins', 'Satoshi', 'system-ui', 'sans-serif'],
+				'sans': ['Merriweather', 'Inter', 'system-ui', 'serif'],
+				'display': ['Cinzel', 'Merriweather', 'system-ui', 'serif'],
+				'serif': ['Merriweather', 'Georgia', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -92,11 +93,20 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'spin-slow': {
+					from: {
+						transform: 'rotate(0deg)'
+					},
+					to: {
+						transform: 'rotate(360deg)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'spin-slow': 'spin-slow 20s linear infinite'
 			}
 		}
 	},
